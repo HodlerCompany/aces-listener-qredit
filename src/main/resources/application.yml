@@ -1,0 +1,33 @@
+serverInfo:
+  name: "AcesListenerQredit"
+  description: "ACES Listener implementation for Qredit"
+  version: "1.1.0"
+  websiteUrl: "https://arkaces.com"
+
+spring:
+  datasource:
+    platform: "postgres"
+    url: "jdbc:postgresql://localhost:5432/aces_listener_ark_db"
+    username: "postgres"
+    password: "password"
+  jpa:
+    hibernate:
+      ddl-auto: "validate"
+
+flyway:
+  enabled: true
+
+# Ark network config YML that listening will be performed against
+arkNetworkConfigPath: "ark_network_config/mainnet.yml"
+
+# Number of Transactions to scan through each execution cycle
+scanTransactionDepth: 500
+
+server:
+  # Port the application runs on
+  port: 9091
+
+# The following restricts logging to errors. Comment out lines 31-33 below to get more verbose logging
+#logging:
+#  level:
+#    com.arkaces.aces_listener_qredit.QreditEventListener: ERROR
